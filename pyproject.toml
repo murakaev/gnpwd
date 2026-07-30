@@ -1,17 +1,27 @@
 [project]
 name = "gnpwd"
 version = "0.1.0"
-description = ""
+description = "A cryptographically secure password and passphrase generator"
 readme = "README.md"
 authors = [
     { name = "Timur Murakaev", email = "murakaev.tt@icloud.com" }
 ]
 requires-python = ">=3.14"
-dependencies = []
+dependencies = [
+    "typer>=0.27.0",
+]
 
 [project.scripts]
-gnpwd = "gnpwd:main"
+gnpwd = "gnpwd.cli:app"
+
+[tool.setuptools.packages.find]
+where = ["src"]
 
 [build-system]
 requires = ["uv_build>=0.12.0,<0.13.0"]
 build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "ruff>=0.16.0",
+]
